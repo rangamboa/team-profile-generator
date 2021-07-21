@@ -29,10 +29,10 @@ function init() {
 
 const generateEmployee = () => {
 
-    // Increment IC number.
+    // Increment ID number.
     idCount++;
 
-    console.log('\nEmployee ID #' +idCount);
+    console.log('\nEmployee #' +idCount);
     
     inquirer
         .prompt([
@@ -88,17 +88,32 @@ const generateEmployee = () => {
             // Assign ID to employee.
             answers.id = idCount;
 
-            // console.log(answers);
+            if (answers.role === 'Manager') {
+                let manager = require('./lib/Manager.js')(answers);
 
-            // Add employee to team array.
-            team.push(answers);
+                // Add employee to team array.
+                team.push(manager);
+            }
+
+            if (answers.role === 'Engineer') {
+                let engineer = require('./lib/Engineer.js')(answers);
+
+                // Add employee to team array.
+                team.push(engineer);
+            }
+
+            if (answers.role === 'Intern') {
+                let intern = require('./lib/Intern.js')(answers);
+
+                // Add employee to team array.
+                team.push(intern);
+            }
+
+            console.log('\n----- Team now consists of:')
             console.log(team);
 
+            // Restart function if there are more people to add.
             if (answers.moreStaff) generateEmployee();
-            
-
-
-
 
         });
 };
