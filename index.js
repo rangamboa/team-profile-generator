@@ -4,11 +4,6 @@ const fs = require('fs');
 
 const generateHtml = require('./util/generateHtml.js');
 
-// const employee = require('./lib/Employee.js');
-// const Manager = require('./lib/Manager.js');
-// const engineer = require('./lib/Engineer.js');
-// const intern = require('./lib/Intern.js');
-
 // Set incrementally increasing variable for unique employee ID.
 let idCount;
 
@@ -115,15 +110,21 @@ const generateEmployee = () => {
             // Restart function if there are more people to add.
             if (answers.moreStaff) generateEmployee();
 
+            // If team is complete, call function to generate team page.
+            else generateTeamPage();
+
         });
 };
 
 // Write team info to HTML page.
 function generateTeamPage() {
 
+    console.log('end');
+
     fs.writeFile('./dist/team.html', generateHtml(team), (err) =>
     err ? console.log(err) : console.log('Successfully generated team profile page.')
     );
+    
 }
 
 // Call init() upon application launch.
