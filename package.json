@@ -13,9 +13,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.5.2"
   },
   "devDependencies": {
     "jest": "^24.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rangamboa/team-profile-generator.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/rangamboa/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/rangamboa/team-profile-generator#readme"
 }
