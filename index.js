@@ -15,6 +15,7 @@ let mgrInput;
 // A variable to assign a unique employee ID.
 let idCount;
 const team = [];
+let data;
 
 // Reset values upon launch.
 function init() {
@@ -46,12 +47,12 @@ const generateEmployee = () => {
                 type: 'input',
                 message: 'Please enter your Email Address.',
             },
-            // {
-            //     name: 'role',
-            //     type: 'list',
-            //     message: 'What is your Role on the Team?',
-            //     choices: ['Manager', 'Engineer', 'Intern'],
-            // },
+            {
+                name: 'role',
+                type: 'list',
+                message: 'What is your Role on the Team?',
+                choices: ['Manager', 'Engineer', 'Intern'],
+            },
         ])
 
         .then((answers) => {
@@ -64,24 +65,37 @@ const generateEmployee = () => {
             answers.role = 'Employee';
 
             //console.log(answers);
-
-            // Check to see if manager info has been entered. If not, this employee is assumed to be the manager.
-            console.log(mgrInput);
-            if (mgrInput == false) {
-                mgrInput = true;
-                Manager(answers); 
-            }
-            console.log('----- back');
-            console.log(mgrInput);
-            
-            // fs.writeFile('./dist/team.html', generateHtml(answers), (err) =>
-            // err ? console.log(err) : console.log('Successfully generated team page.')
-            // );
-
         });
+
+        // Check to see if manager info has been entered. If not, this employee is assumed to be the manager.
+        console.log(mgrInput);
+        if (mgrInput == false) {
+
+            // Set mgrInput to true since there is only one manager on the team.
+            mgrInput = true;
+
+            inquirer
+            .prompt([
+                {
+                    name: 'officeNum',
+                    type: 'input',
+                    message: 'Please enter your Office Number.',
+                }
+            ])
+            .then((answers) => {
+                    
+                    console.log(answers.officeNum);
+                    console.log(answers);
+                    data = answers;
+            });
+            //Manager(answers); 
 
 };
 
 // Call init() upon application launch.
 init();
 
+            
+            // fs.writeFile('./dist/team.html', generateHtml(answers), (err) =>
+            // err ? console.log(err) : console.log('Successfully generated team page.')
+            // );
