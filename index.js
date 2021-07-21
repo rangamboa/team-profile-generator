@@ -3,79 +3,104 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateHtml = require('./util/generateHtml.js');
-//const Manager = require('./lib/Manager.js');
 
-// const generateHtml = require('./lib/Engineer.js');
-// const generateHtml = require('./lib/Intern.js');
-const employee = require('./lib/Employee.js');
+// const employee = require('./lib/Employee.js');
+// const Manager = require('./lib/Manager.js');
+// const engineer = require('./lib/Engineer.js');
+// const intern = require('./lib/Intern.js');
 
-// Boolean to keep track of whether the manager information has been entered yet or not.
-let mgrInput;
-
-// A variable to assign a unique employee ID.
+// Set incrementally increasing variable for unique employee ID.
 let idCount;
+
+// Set empty team array.
 const team = [];
-let data;
 
 // Reset values upon launch.
 function init() {
 
-    // Initialize this value to false the first time the app is run.
-    mgrInput = false;
+    console.log('\n-----')
+    console.log('Welcome to the Web Dev Team Profile Generator!');
 
     // Initialize employee ID number to 1.
-    idCount = 1;
+    idCount = 0;
 
+    // Call function to generate first employee.
     generateEmployee();
 }
 
 const generateEmployee = () => {
 
-    console.log('\n-----')
-    console.log('Welcome to the Web Dev Team Profile Generator!');
+    console.log(idCount);
+    idCount++
+    console.log(idCount);
+    
+    inquirer
+        .prompt([
+            {
+                name: 'name',
+                type: 'input',
+                message: 'Please enter your name.',
+            },
+            {
+                name: 'email',
+                type: 'input',
+                message: 'Please enter your email address.',
+            },
+            {
+                name: 'role',
+                type: 'list',
+                message: 'What is your role on the team?',
+                choices: ['Manager', 'Engineer', 'Intern'],
+            },
+            {
+                name: 'officeNum',
+                type: 'input',
+                message: 'Please enter your office number.',
+                when: (answers) => answers.role === 'Manager',
+            },
+            {
+                name: 'github',
+                type: 'input',
+                message: 'Please enter your GitHub profile name.',
+                when: (answers) => answers.role === 'Engineer',
+            },
+            {
+                name: 'school',
+                type: 'input',
+                message: 'Please enter your school.',
+                when: (answers) => answers.role === 'Intern',
+            },
+            {
+                name: 'more',
+                type: 'confirm',
+                message: 'Are there more members of your team?',
+            },
+        ])
+        .then((answers) => {
 
-    employee(idCount);
+            answers.id = idCount;
+            // console.log(answers);
 
-    // inquirer
-    //     // Create a generic non-role employee.
-    //     .prompt([
-    //         {
-    //             name: 'name',
-    //             type: 'input',
-    //             message: 'Please enter your Name.',
-    //         },
-    //         {
-    //             name: 'email',
-    //             type: 'input',
-    //             message: 'Please enter your Email Address.',
-    //         },
-    //         {
-    //             name: 'role',
-    //             type: 'list',
-    //             message: 'What is your Role on the Team?',
-    //             choices: ['Manager', 'Engineer', 'Intern'],
-    //         },
-    //     ])
+            team.push(answers);
 
-    //     .then((answers) => {
+            console.log(team);
 
-    //         // Set employee ID number, then increment for next employee.
-    //         answers.id = idCount;
-    //         idCount++;
-            
-    //         // Set universal team role to "Employee"; this is changed later.
-    //         answers.role = 'Employee';
+            if (answers.more) generateEmployee();
 
-    //         data = answers;
-    //         console.log(data);
-    //     });
-        // console.log('data: '+data);
+
+
+
+
+        });
 };
+
+// Writes team info to HTML page.
+function generateTeamPage() {
+
+    fs.writeFile('./dist/team.html', generateHtml(team), (err) =>
+    err ? console.log(err) : console.log('Successfully generated team profile page.')
+    );
+}
 
 // Call init() upon application launch.
 init();
-
-            
-            // fs.writeFile('./dist/team.html', generateHtml(answers), (err) =>
-            // err ? console.log(err) : console.log('Successfully generated team page.')
-            // );
