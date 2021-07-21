@@ -1,42 +1,60 @@
 // This application requires these packages.
 const inquirer = require('inquirer');
 const fs = require('fs');
+
 const generateHtml = require('./util/generateHtml.js');
+
+// const generateHtml = require('./lib/Engineer.js');
+// const generateHtml = require('./lib/Intern.js');
+// const generateHtml = require('./lib/Manager.js');
 
 
 const init = () => {
+
+    console.log('\n-----')
+    console.log('Welcome to the Web Dev Team Profile Generator!');
 
     inquirer
 
         .prompt([
             {
-                type: 'input',
                 name: 'name',
-                message: 'What is your name?',
+                type: 'input',
+                message: 'Please enter your Name.',
             },
             {
-                type: 'checkbox',
-                message: 'What languages do you know?',
-                name: 'stack',
-                choices: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+                name: 'id',
+                type: 'number',
+                message: 'Please enter your Employee ID?',
             },
             {
-                type: 'list',
-                message: 'What is your preferred method of communication?',
-                name: 'contact',
-                choices: ['email', 'phone', 'telekinesis'],
+                name: 'email',
+                type: 'input',
+                message: 'Please enter your Email Address.',
             },
+            // {
+            //     name: 'role',
+            //     type: 'list',
+            //     message: 'What is your Role on the Team?',
+            //     choices: ['Manager', 'Engineer', 'Intern'],
+            // },
         ])
 
         .then((answers) => {
 
-            fs.writeFile('./dist/team.html', generateHtml(answers), (err) =>
-            err ? console.log(err) : console.log('Successfully generated team page.')
-            );
+            const manager = answers;
+
+            console.log(manager);
+
+            const employee = require('./lib/Employee.js');
+
+            // fs.writeFile('./dist/team.html', generateHtml(answers), (err) =>
+            // err ? console.log(err) : console.log('Successfully generated team page.')
+            // );
 
         });
 
 };
 
 // Call init() upon application launch.
-// init();
+init();
