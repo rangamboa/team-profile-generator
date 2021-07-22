@@ -8,12 +8,18 @@
     letter-spacing: -2px;
 }
 
-.row {
-    oborder: 1px solid black;
+.card {
+    opacity: 70%;
+}
+
+.card:hover {
+    opacity: 100%;
+    border-bottom: 5px solid darkgrey;
 }
 
 .employee-card {
-    width: 300px;
+    min-width: 33%;
+    max-width: 100%;
     margin: 0px 10px 20px 10px;
     border-bottom: 5px solid lightgrey;
 }
