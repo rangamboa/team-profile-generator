@@ -1,0 +1,23 @@
+.custom-jumbotron {
+    background-color: lightblue;
+    border-bottom: 5px solid grey;
+}
+
+.custom-jumbotron h1 {
+    font-size: 300%;
+    letter-spacing: -2px;
+}
+
+.row {
+    oborder: 1px solid black;
+}
+
+.employee-card {
+    width: 300px;
+    margin: 0px 10px 20px 10px;
+    border-bottom: 5px solid lightgrey;
+}
+
+h3.card-title {
+    font-style: italic;
+}
