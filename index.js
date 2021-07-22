@@ -51,7 +51,7 @@ const generateEmployee = () => {
                 choices: ['Manager', 'Engineer', 'Intern'],
             },
             {
-                name: 'officeNum',
+                name: 'officeNumber',
                 type: 'input',
                 prefix: '-',
                 message: 'Please enter your office number.',
