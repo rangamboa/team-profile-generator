@@ -11,11 +11,12 @@
   5. [Contribution](#contribution)
   6. [Testing](#testing)
   7. [Questions](#questions)
-  8. [License](#license)
+  8. [Screenshot](#screenshot)
+  9. [License](#license)
   
 ## Description
 
-Team Profile Generator is a command-line application that dynamically generates a static "team profile" page, ``team.html``, from a user's input using the Inquirer package.
+Team Profile Generator is a command-line application that dynamically generates a static "team profile" page, ``team.html``, from a user's input using the Inquirer package. The page resizes itself dynamically as the screen size changes.
 
 ## Walkthrough
 

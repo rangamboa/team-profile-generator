@@ -9,22 +9,26 @@
 }
 
 .card {
-    opacity: 70%;
+    opacity: 85%;
     border-radius: 10px;
 }
 
 .card:hover {
     opacity: 100%;
-    border-bottom: 5px solid darkgrey;
+    border-bottom: 10px solid darkgrey;
 }
 
 .employee-card {
     min-width:33%;
     max-width:100%;
     margin: 0px 0px 20px 0px;
-    border-bottom: 5px solid lightgrey;
+    border-bottom: 10px solid lightgrey;
 }
 
 h3.card-title {
     font-style: italic;
+}
+
+.card-header {
+    background-color: rgb(230, 132, 132);
 }
