@@ -44,7 +44,9 @@ Thanks!
 
 ## Testing
 
-Of the 17 total tests run via Jest, 6 unfortunately failed as evidenced in the walkthrough video. I was unable to find the cause of the failures; they were similar failures for ``Engineer.js``, ``Intern.js`` and ``Manager.js``. The code looked error-free so I suspect I have omitted a crucial part of the syntax for the tests to pass.
+UPDATE 07/22/21: Syntax and code placement in  ``Engineer.js``, ``Intern.js`` and ``Manager.js`` were identified and corrected with assistance. The tests now pass.
+
+Initially, 6 of 17 total tests run via Jest to test failed as evidenced in the walkthrough video. They were similar failures for ``Engineer.js``, ``Intern.js`` and ``Manager.js``. The code looked error-free so I suspect I have omitted a crucial part of the syntax for the tests to pass.
 
 ## Questions
 
