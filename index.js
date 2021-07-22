@@ -2,6 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+
 const generateHtml = require('./util/generateHtml.js');
 
 // Set incrementally increasing variable for unique employee ID.
@@ -15,7 +19,7 @@ function init() {
 
     console.log('\n----- Welcome to the Web Dev Team Profile Generator!');
 
-    // Initialize employee ID number to 1.
+    // Initialize employee ID number to 0.
     idCount = 0;
 
     // Call function to generate first employee.
@@ -27,7 +31,7 @@ const generateEmployee = () => {
     // Increment ID number.
     idCount++;
 
-    console.log('\nEmployee #' +idCount);
+    console.log('\nEMPLOYEE #' +idCount);
     
     inquirer
         .prompt([
@@ -84,21 +88,21 @@ const generateEmployee = () => {
             answers.id = idCount;
 
             if (answers.role === 'Manager') {
-                let manager = require('./lib/Manager.js')(answers);
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
 
                 // Add employee to team array.
                 team.push(manager);
             }
 
             if (answers.role === 'Engineer') {
-                let engineer = require('./lib/Engineer.js')(answers);
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
 
                 // Add employee to team array.
                 team.push(engineer);
             }
 
             if (answers.role === 'Intern') {
-                let intern = require('./lib/Intern.js')(answers);
+                const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
 
                 // Add employee to team array.
                 team.push(intern);
