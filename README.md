@@ -20,7 +20,7 @@ Team Profile Generator is a command-line application that dynamically generates 
 
 ## Walkthrough
 
-Here is a link to a [walkthrough video on YouTube](https://youtu.be/MdJfz2X5SfQ) to show the application functionality.
+Here is a link to a [walkthrough video on YouTube](https://youtu.be/MdJfz2X5SfQ) to show the application functionality. Furthermore a [sample team.html file](https://github.com/rangamboa/team-profile-generator/blob/main/dist/team.html) is included in this repository, in the ``dist`` folder.
 
 ## Installation
 
