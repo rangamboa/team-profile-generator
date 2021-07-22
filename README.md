@@ -20,7 +20,7 @@ Team Profile Generator is a command-line application that dynamically generates 
 
 ## Walkthrough
 
-Here is a link to a [walkthrough video on YouTube](https://www.youtube.com/watch?v=M-JnNamKpLE&ab_channel=RanGamboa) to show the application functionality.
+Here is a link to a [walkthrough video on YouTube](https://youtu.be/MdJfz2X5SfQ) to show the application functionality.
 
 ## Installation
 
@@ -54,7 +54,8 @@ Please don't hesitate to reach out to me via GitHub or email if you've got any q
 
 * [Email](mailto:rangamboa@gmail.com)
 
-
+## Screenshot
+![Screenshot of generated HTML page](./assets/screenshot.jpg)
 ## License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
