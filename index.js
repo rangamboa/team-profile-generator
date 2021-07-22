@@ -104,8 +104,8 @@ const generateEmployee = () => {
                 team.push(intern);
             }
 
-            console.log('\n----- Team now consists of:')
-            console.log(team);
+            // console.log('\n----- Team now consists of:')
+            // console.log(team);
 
             // Restart function if there are more people to add.
             if (answers.moreStaff) generateEmployee();
@@ -119,12 +119,10 @@ const generateEmployee = () => {
 // Write team info to HTML page.
 function generateTeamPage() {
 
-    console.log('end');
-
     fs.writeFile('./dist/team.html', generateHtml(team), (err) =>
     err ? console.log(err) : console.log('Successfully generated team profile page.')
     );
-    
+
 }
 
 // Call init() upon application launch.

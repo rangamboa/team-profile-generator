@@ -117,7 +117,7 @@ module.exports = team => {
 
         <div class="row d-flex justify-content-center">
 
-            <div class="team-area row row d-flex align-self-start justify-content-center">             
+            <div class="team-area row row d-flex justify-content-center">             
 
                 ${generateTeam(team)}
 

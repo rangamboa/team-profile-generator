@@ -10,6 +10,7 @@
 
 .card {
     opacity: 70%;
+    border-radius: 10px;
 }
 
 .card:hover {
@@ -18,9 +19,9 @@
 }
 
 .employee-card {
-    min-width: 33%;
-    max-width: 100%;
-    margin: 0px 10px 20px 10px;
+    min-width:33%;
+    max-width:100%;
+    margin: 0px 0px 20px 0px;
     border-bottom: 5px solid lightgrey;
 }
 
