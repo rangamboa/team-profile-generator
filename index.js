@@ -52,7 +52,7 @@ const generateEmployee = () => {
             },
             {
                 name: 'officeNumber',
-                type: 'input',
+                type: 'number',
                 prefix: '-',
                 message: 'Please enter your office number.',
                 when: (answers) => answers.role === 'Manager',
